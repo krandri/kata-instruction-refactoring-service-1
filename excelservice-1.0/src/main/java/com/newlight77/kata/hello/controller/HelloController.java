@@ -1,4 +1,4 @@
-package com.newlight77.kata.hello;
+package com.newlight77.kata.hello.controller;
 
 import org.springframework.web.bind.annotation.*;
 

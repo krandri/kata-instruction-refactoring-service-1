@@ -1,4 +1,4 @@
-package com.newlight77.kata.question;
+package com.newlight77.kata.question.model;
 
 import lombok.Data;
 

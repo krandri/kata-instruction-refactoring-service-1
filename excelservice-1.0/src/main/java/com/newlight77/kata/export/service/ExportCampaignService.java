@@ -1,6 +1,6 @@
 package com.newlight77.kata.export.service;
 
-import com.newlight77.kata.address.AddressStatus;
+import com.newlight77.kata.address.model.AddressStatus;
 import com.newlight77.kata.campaign.client.CampaignClient;
 import com.newlight77.kata.campaign.model.Campaign;
 import com.newlight77.kata.mail.service.MailService;

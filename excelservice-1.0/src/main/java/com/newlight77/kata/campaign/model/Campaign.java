@@ -1,6 +1,6 @@
 package com.newlight77.kata.campaign.model;
 
-import com.newlight77.kata.address.AddressStatus;
+import com.newlight77.kata.address.model.AddressStatus;
 import lombok.Data;
 
 import java.util.List;

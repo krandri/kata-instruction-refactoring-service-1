@@ -1,4 +1,4 @@
-package com.newlight77.kata.address;
+package com.newlight77.kata.address.model;
 
 import lombok.Data;
 
