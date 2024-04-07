@@ -13,7 +13,7 @@ public class SurveyService {
     this.surveyClient = surveyClient;
   }
 
-  public void creerSurvey(final Survey survey) {
+  public void createSurvey(final Survey survey) {
     surveyClient.createSurvey(survey);
   }
 

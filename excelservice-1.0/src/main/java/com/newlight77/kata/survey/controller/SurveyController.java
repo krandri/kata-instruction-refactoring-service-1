@@ -1,7 +1,6 @@
 package com.newlight77.kata.survey.controller;
 
 import com.newlight77.kata.survey.model.Survey;
-import com.newlight77.kata.export.service.ExportCampaignService;
 import com.newlight77.kata.survey.service.SurveyService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +16,7 @@ public class SurveyController {
 
     @PostMapping
     public void createSurvey(@RequestBody final Survey survey) {
-        surveyService.creerSurvey(survey);
+        surveyService.createSurvey(survey);
     }
 
     @GetMapping("/{id}")
