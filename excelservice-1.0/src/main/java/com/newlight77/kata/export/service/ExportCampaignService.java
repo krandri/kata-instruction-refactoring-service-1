@@ -1,7 +1,7 @@
 package com.newlight77.kata.export.service;
 
 import com.newlight77.kata.address.AddressStatus;
-import com.newlight77.kata.campaign.client.CampaignService;
+import com.newlight77.kata.campaign.client.CampaignClient;
 import com.newlight77.kata.campaign.model.Campaign;
 import com.newlight77.kata.mail.service.MailService;
 import com.newlight77.kata.survey.model.Survey;
@@ -22,14 +22,14 @@ public class ExportCampaignService {
 
   private final MailService mailService;
 
-  private final CampaignService campaignService;
+  private final CampaignClient campaignService;
 
   private final SurveyService surveyService;
 
   private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 
-  public ExportCampaignService(final MailService mailService, final CampaignService campaignService, final SurveyService surveyService) {
+  public ExportCampaignService(final MailService mailService, final CampaignClient campaignService, final SurveyService surveyService) {
     this.mailService = mailService;
     this.campaignService = campaignService;
     this.surveyService = surveyService;

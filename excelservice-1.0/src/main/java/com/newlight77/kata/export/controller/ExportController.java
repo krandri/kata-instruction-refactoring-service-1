@@ -15,7 +15,7 @@ public class ExportController {
         this.exportCampaignService = exportCampaignService;
     }
 
-    @RequestMapping(value = "/{campaignId}", method = RequestMethod.POST)
+    @PostMapping(value = "/{campaignId}")
     public void exportCampaign(@RequestParam final String campaignId) {
         exportCampaignService.exportCampaign(campaignId);
     }

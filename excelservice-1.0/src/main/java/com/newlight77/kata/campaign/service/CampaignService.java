@@ -1,14 +1,15 @@
 package com.newlight77.kata.campaign.service;
 
+import com.newlight77.kata.campaign.client.CampaignClient;
 import com.newlight77.kata.campaign.model.Campaign;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CampaignService {
 
-    private final com.newlight77.kata.campaign.client.CampaignService campaignWebService;
+    private final CampaignClient campaignWebService;
 
-    public CampaignService(final com.newlight77.kata.campaign.client.CampaignService campaignWebService) {
+    public CampaignService(final CampaignClient campaignWebService) {
         this.campaignWebService = campaignWebService;
     }
 

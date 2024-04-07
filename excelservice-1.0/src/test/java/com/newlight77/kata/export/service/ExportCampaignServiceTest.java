@@ -1,6 +1,6 @@
 package com.newlight77.kata.export.service;
 
-import com.newlight77.kata.campaign.client.CampaignService;
+import com.newlight77.kata.campaign.client.CampaignClient;
 import com.newlight77.kata.campaign.model.Campaign;
 import com.newlight77.kata.mail.service.MailService;
 import com.newlight77.kata.survey.model.Survey;
@@ -21,7 +21,7 @@ public class ExportCampaignServiceTest {
     private ExportCampaignService service;
 
     @Mock
-    private CampaignService campaignServiceMock;
+    private CampaignClient campaignServiceMock;
 
     @Mock
     private SurveyService surveyServiceMock;
