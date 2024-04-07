@@ -1,6 +1,6 @@
-package com.newlight77.kata.survey.service;
+package com.newlight77.kata.mail.service;
 
-import com.newlight77.kata.survey.config.MailServiceConfig;
+import com.newlight77.kata.config.MailServiceConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.FileSystemResource;

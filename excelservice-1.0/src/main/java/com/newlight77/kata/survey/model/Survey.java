@@ -1,5 +1,7 @@
 package com.newlight77.kata.survey.model;
 
+import com.newlight77.kata.address.Address;
+import com.newlight77.kata.question.Question;
 import lombok.Data;
 
 import java.util.List;

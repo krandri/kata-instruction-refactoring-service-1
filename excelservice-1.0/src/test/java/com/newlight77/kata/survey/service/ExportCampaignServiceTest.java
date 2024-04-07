@@ -1,7 +1,8 @@
 package com.newlight77.kata.survey.service;
 
-import com.newlight77.kata.survey.client.CampaignClient;
-import com.newlight77.kata.survey.model.Campaign;
+import com.newlight77.kata.campaign.client.CampaignClient;
+import com.newlight77.kata.campaign.model.Campaign;
+import com.newlight77.kata.mail.service.MailService;
 import com.newlight77.kata.survey.model.Survey;
 import com.newlight77.kata.survey.util.JsonUtil;
 import org.apache.poi.ss.usermodel.Row;

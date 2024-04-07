@@ -1,6 +1,6 @@
-package com.newlight77.kata.survey.client;
+package com.newlight77.kata.campaign.client;
 
-import com.newlight77.kata.survey.model.Campaign;
+import com.newlight77.kata.campaign.model.Campaign;
 import com.newlight77.kata.survey.model.Survey;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;

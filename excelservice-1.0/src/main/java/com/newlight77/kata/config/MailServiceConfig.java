@@ -1,4 +1,4 @@
-package com.newlight77.kata.survey.config;
+package com.newlight77.kata.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

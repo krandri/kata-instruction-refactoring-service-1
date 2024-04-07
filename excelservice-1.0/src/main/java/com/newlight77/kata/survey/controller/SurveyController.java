@@ -1,6 +1,6 @@
-package com.newlight77.kata.survey.controler;
+package com.newlight77.kata.survey.controller;
 
-import com.newlight77.kata.survey.model.Campaign;
+import com.newlight77.kata.campaign.model.Campaign;
 import com.newlight77.kata.survey.model.Survey;
 import com.newlight77.kata.survey.service.ExportCampaignService;
 import org.springframework.web.bind.annotation.*;
