@@ -1,46 +1,45 @@
-package com.newlight77.kata.survey.service;
+package com.newlight77.kata.export.service;
 
 import com.newlight77.kata.address.AddressStatus;
+import com.newlight77.kata.campaign.client.CampaignService;
 import com.newlight77.kata.campaign.model.Campaign;
 import com.newlight77.kata.mail.service.MailService;
 import com.newlight77.kata.survey.model.Survey;
-import com.newlight77.kata.campaign.client.CampaignClient;
+import com.newlight77.kata.survey.service.SurveyService;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
-@Component
+@Service
 public class ExportCampaignService {
 
-  private final CampaignClient campaignWebService;
   private final MailService mailService;
+
+  private final CampaignService campaignService;
+
+  private final SurveyService surveyService;
+
   private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-  
-  public ExportCampaignService(final CampaignClient campaignWebService, final MailService mailService) {
-    this.campaignWebService = campaignWebService;
+
+
+  public ExportCampaignService(final MailService mailService, final CampaignService campaignService, final SurveyService surveyService) {
     this.mailService = mailService;
+    this.campaignService = campaignService;
+    this.surveyService = surveyService;
   }
 
-  public void creerSurvey(final Survey survey) {
-    campaignWebService.createSurvey(survey);
-  }
+  public void exportCampaign(final String campaignId) {
+    final Campaign campaign = Optional.of(campaignService.getCampaign(campaignId)).orElseThrow(NullPointerException::new);
+    final Survey survey = Optional.of(surveyService.getSurvey(campaign.getSurveyId())).orElseThrow(NullPointerException::new);
 
-  public Survey getSurvey(final String id) {
-    return campaignWebService.getSurvey(id);
-  }
-
-  public void createCampaign(final Campaign campaign) {
-    campaignWebService.createCampaign(campaign);
-  }
-
-  public Campaign getCampaign(final String id) {
-    return campaignWebService.getCampaign(id);
+    sendResults(campaign, survey);
   }
 
   public void sendResults(final Campaign campaign, final Survey survey) {

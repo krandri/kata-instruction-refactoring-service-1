@@ -1,4 +1,4 @@
-package com.newlight77.kata.survey.util;
+package com.newlight77.kata.export.util;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser;

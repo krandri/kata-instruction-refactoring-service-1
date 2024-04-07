@@ -1,10 +1,11 @@
-package com.newlight77.kata.survey.service;
+package com.newlight77.kata.export.service;
 
-import com.newlight77.kata.campaign.client.CampaignClient;
+import com.newlight77.kata.campaign.client.CampaignService;
 import com.newlight77.kata.campaign.model.Campaign;
 import com.newlight77.kata.mail.service.MailService;
 import com.newlight77.kata.survey.model.Survey;
-import com.newlight77.kata.survey.util.JsonUtil;
+import com.newlight77.kata.export.util.JsonUtil;
+import com.newlight77.kata.survey.service.SurveyService;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -20,7 +21,10 @@ public class ExportCampaignServiceTest {
     private ExportCampaignService service;
 
     @Mock
-    private CampaignClient campaignClientMock;
+    private CampaignService campaignServiceMock;
+
+    @Mock
+    private SurveyService surveyServiceMock;
 
     @Mock
     private MailService mailServiceMock;
@@ -35,7 +39,7 @@ public class ExportCampaignServiceTest {
     public void init() {
         MockitoAnnotations.initMocks(this);
 
-        service = new ExportCampaignService(campaignClientMock, mailServiceMock);
+        service = new ExportCampaignService(mailServiceMock, campaignServiceMock, surveyServiceMock);
         service = Mockito.spy(service);
     }
 
@@ -93,7 +97,7 @@ public class ExportCampaignServiceTest {
                 "}";
         Campaign campaign = JsonUtil.instance().fromJson(campaignJson, Campaign.class);
 
-        Mockito.doReturn(campaign).when(campaignClientMock).getCampaign(Mockito.anyString());
+        Mockito.doReturn(campaign).when(campaignServiceMock).getCampaign(Mockito.anyString());
         Mockito.doNothing().when(mailServiceMock).send(Mockito.any(File.class));
 
         // Act

@@ -1,27 +1,28 @@
 package com.newlight77.kata.survey.controller;
 
 import com.newlight77.kata.survey.model.Survey;
-import com.newlight77.kata.survey.service.ExportCampaignService;
+import com.newlight77.kata.export.service.ExportCampaignService;
+import com.newlight77.kata.survey.service.SurveyService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/survey")
 public class SurveyController {
 
-    private final ExportCampaignService exportCampaignService;
+    private final SurveyService surveyService;
 
-    public SurveyController(final ExportCampaignService exportCampaignService) {
-      this.exportCampaignService = exportCampaignService;
+    public SurveyController(final SurveyService surveyService) {
+      this.surveyService = surveyService;
     }
 
     @PostMapping
     public void createSurvey(@RequestBody final Survey survey) {
-        exportCampaignService.creerSurvey(survey);
+        surveyService.creerSurvey(survey);
     }
 
     @GetMapping("/{id}")
     public Survey getSurvey(@RequestParam final String id) {
-        return exportCampaignService.getSurvey(id);
+        return surveyService.getSurvey(id);
     }
 }
 

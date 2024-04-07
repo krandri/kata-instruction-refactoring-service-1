@@ -2,7 +2,7 @@ package com.newlight77.kata.export.controller;
 
 import com.newlight77.kata.campaign.model.Campaign;
 import com.newlight77.kata.survey.model.Survey;
-import com.newlight77.kata.survey.service.ExportCampaignService;
+import com.newlight77.kata.export.service.ExportCampaignService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,11 +15,9 @@ public class ExportController {
         this.exportCampaignService = exportCampaignService;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/{campaignId}", method = RequestMethod.POST)
     public void exportCampaign(@RequestParam final String campaignId) {
-        final Campaign campaign = exportCampaignService.getCampaign(campaignId);
-        final Survey survey = exportCampaignService.getSurvey(campaign.getSurveyId());
-        exportCampaignService.sendResults(campaign, survey);
+        exportCampaignService.exportCampaign(campaignId);
     }
 }
 
